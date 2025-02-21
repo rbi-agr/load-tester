@@ -214,6 +214,7 @@ const createClient = (a) => {
             )
           ];
         log(`User ${a}: ${messageToSend}`);
+        log(`User ${a}: ${messageToSend}`);
         socket.emit("request", {
           message: {
             text: messageToSend,

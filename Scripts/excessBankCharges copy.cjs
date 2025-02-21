@@ -85,9 +85,26 @@ const createClient = (a) => {
       );
 
       if (message.message === "Do you remember the date of transaction?") {
-        log(`User ${a}: "No, I don't remember"`);
+        const rememberDate = Math.random() < 0.5;
+        if (rememberDate) {
+          log(`User ${a}: "Yes, I remember"`);
+          socket.emit("request", {
+            message: { text: "Yes, I remember" },
+            session_id: sessionId,
+            metadata: dataToSend.metadata,
+          });
+        } else {
+          log(`User ${a}: "No, I don't remember"`);
+          socket.emit("request", {
+            message: { text: "No, I don't remember" },
+            session_id: sessionId,
+            metadata: dataToSend.metadata,
+          });
+        }
+      } else if (message.message === "Please enter the date of transaction") {
+        log(`User ${a}: "20/02/2025"`);
         socket.emit("request", {
-          message: { text: "No, I don't remember" },
+          message: { text: "20/02/2025" },
           session_id: sessionId,
           metadata: dataToSend.metadata,
         });
@@ -95,23 +112,23 @@ const createClient = (a) => {
         message.message ===
         "Please enter the start date and end date for the transaction"
       ) {
-        log(`User ${a}: '{"startDate": "2025/01/01","endDate": "2025/02/11"}'`);
+        log(`User ${a}: '{"startDate": "13/02/2025","endDate": "19/02/2025"}'`);
         socket.emit("request", {
           message: {
-            text: '{"startDate": "2025/01/01","endDate": "2025/02/11"}',
+            text: '{"startDate": "13/02/2025","endDate": "19/02/2025"}',
           },
           session_id: sessionId,
           metadata: dataToSend.metadata,
         });
       } else if (message.message === "Please confirm your transactions") {
-        log(`User ${a}: "february , 2025|Excess wdl charges|300.000"`);
+        log(`User ${a}: "March 13, 2024|Excess wdl charges|300.000"`);
         socket.emit("request", {
-          message: { text: "february , 2025|Excess wdl charges|300.000" },
+          message: { text: "March 13, 2024|Excess wdl charges|300.000" },
           session_id: sessionId,
           metadata: dataToSend.metadata,
         });
       } else if (
-        message.message === "Are you satisfied with the resolution provided?"
+        message.message.includes("Reason:- Excess withdrawal charges")
       ) {
         log(`User ${a}: "Yes, I am satisfied"`);
         socket.emit("request", {
@@ -123,18 +140,34 @@ const createClient = (a) => {
         message.message ===
         "Do you want to know about the other transactions too?"
       ) {
-        log(`User ${a}: "No, I don't want to know"`);
+        log(`User ${a}: "Yes, I want to know"`);
         socket.emit("request", {
-          message: { text: "No, I don't want to know" },
+          message: { text: "Yes, I want to know" },
           session_id: sessionId,
           metadata: dataToSend.metadata,
         });
       } else if (
-        message.message === "Please give a rating on a scale of 1 to 5"
+        message.message === "Please select from the following transactions"
       ) {
-        log(`User ${a}: "4"`);
+        log(`User ${a}: "March 13, 2024|ATM AMC CHGS|118.000"`);
         socket.emit("request", {
-          message: { text: "4" },
+          message: { text: "March 13, 2024|ATM AMC CHGS|118.000" },
+          session_id: sessionId,
+          metadata: dataToSend.metadata,
+        });
+      } else if (message.message.includes("AMC for your ATM Card")) {
+        log(`User ${a}: "No, I am not satisfied"`);
+        socket.emit("request", {
+          message: { text: "No, I am not satisfied" },
+          session_id: sessionId,
+          metadata: dataToSend.metadata,
+        });
+      } else if (
+        message.message === "Please select Yes to end the conversation."
+      ) {
+        log(`User ${a}: "Yes, end the conversation"`);
+        socket.emit("request", {
+          message: { text: "Yes, end the conversation" },
           session_id: sessionId,
           metadata: dataToSend.metadata,
         });
