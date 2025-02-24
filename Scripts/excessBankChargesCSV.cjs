@@ -49,25 +49,20 @@ const pleaseEnterTheStartDateAndEndDateForTheTransaction = [
 ];
 
 const csvWriter = createCsvWriter({
-  path: "request_response_log.csv",
+  path: "test_results.csv",
   header: [
-    { id: "user", title: "User" },
-    { id: "request", title: "Request" },
+    { id: "s_no", title: "S.No" },
+    { id: "test_case", title: "Test Case" },
+    { id: "message_sent", title: "Message Sent" },
     { id: "response", title: "Response" },
-    { id: "responseTime", title: "Response Time (s)" },
-    { id: "totalResponseTime", title: "Total Response Time (s)" },
+    { id: "status", title: "Status" },
+    { id: "time_to_execute", title: "Time To Execute" },
   ],
 });
 
-const logToCsv = (user, request, response, responseTime, totalResponseTime) => {
+const logToCsv = (s_no, test_case, message_sent, response, status, time) => {
   csvWriter.writeRecords([
-    {
-      user,
-      request,
-      response,
-      responseTime,
-      totalResponseTime,
-    },
+    { s_no, test_case, message_sent, response, status, time_to_execute: time },
   ]);
 };
 
@@ -122,6 +117,14 @@ const createClient = (a) => {
 
     socket.on("connect", () => {
       log(`User ${a} connected to the server`);
+      logToCsv(
+        a,
+        firstQuestion,
+        '',
+        '',
+        '',
+        ''
+      );
       socket.emit("request", dataToSend);
     });
 
@@ -154,6 +157,7 @@ const createClient = (a) => {
         });
         logToCsv(
           a,
+          '',
           messageToSend,
           message.message,
           responseTime,
@@ -174,6 +178,7 @@ const createClient = (a) => {
         });
         logToCsv(
           a,
+          '',
           messageToSend,
           message.message,
           responseTime,
@@ -194,6 +199,7 @@ const createClient = (a) => {
         });
         logToCsv(
           a,
+          '',
           messageToSend,
           message.message,
           responseTime,
@@ -218,6 +224,7 @@ const createClient = (a) => {
         });
         logToCsv(
           a,
+          '',
           messageToSend,
           message.message,
           responseTime,
@@ -243,6 +250,7 @@ const createClient = (a) => {
         });
         logToCsv(
           a,
+          '',
           messageToSend,
           message.message,
           responseTime,
@@ -267,6 +275,7 @@ const createClient = (a) => {
         });
         logToCsv(
           a,
+          '',
           messageToSend,
           message.message,
           responseTime,
@@ -291,6 +300,7 @@ const createClient = (a) => {
         });
         logToCsv(
           a,
+          '',
           messageToSend,
           message.message,
           responseTime,
@@ -317,6 +327,7 @@ const createClient = (a) => {
         });
         logToCsv(
           a,
+          '',
           messageToSend,
           message.message,
           responseTime,
