@@ -1,14 +1,9 @@
 User,Request,Response,Response Time (s),Total Response Time (s)
-0,?500 was deducted from my account without any reason.,Do you remember the date of transaction?,0.808,0.808
-0,?500 was deducted from my account without any reason.,Please enter the start date and end date for the transaction,0.905,1.713
-0,?500 was deducted from my account without any reason.,Please confirm your transactions,1.554,3.2670000000000003
-0,?500 was deducted from my account without any reason.,"Reason:-
- The deduction is due to Cash Handling Charges as per your Savings Bank account details for amounts exceeding ₹1 lakh per day.",32.279,35.54600000000001
-0,?500 was deducted from my account without any reason.,Are you satisfied with the resolution provided?,32.281,100.107
-0,?500 was deducted from my account without any reason.,"Additional information:-
-- Maintain daily withdrawals and deposits below ₹1 lakh to avoid Cash Handling Charges.
-- Keep sufficient balance in your account to cover the charges to prevent overdraft.
-",32.28,67.82600000000001
-0,?500 was deducted from my account without any reason.,Your issue has been registered in the CGRS system with this ticket ID: 10776100. You can track the status of your issue on this link: https://apps.indianbank.in/cgrc/frm_cust_comp.aspx,43.238,143.345
-0,?500 was deducted from my account without any reason.,Please select Yes to end the conversation.,43.239,186.584
-0,?500 was deducted from my account without any reason.,Thank You,43.334,229.918
+0,"Yes, I remember",Do you remember the date of transaction?,0.596,0.596
+0,"{""startDate"": ""13/02/2025"",""endDate"": ""19/02/2025""}",Please enter the date of transaction,0.69,1.286
+0,"March 14, 2024|Cash handling charges|1000.000",Please confirm your transactions,1.312,2.598
+0,"Yes, I am satisfied",Are you satisfied with the resolution provided?,41.094,125.87199999999999
+0,"Yes, I want to know",Do you want to know about the other transactions too?,41.183,167.05499999999998
+0,"March 13, 2024|ATM AMC CHGS|118.000",Please select from the following transactions,41.272,208.32699999999997
+0,"No, I am not satisfied",Are you satisfied with the resolution provided?,41.37,291.06499999999994
+0,"Yes, end the conversation",Please select Yes to end the conversation.,51.722,394.50699999999995

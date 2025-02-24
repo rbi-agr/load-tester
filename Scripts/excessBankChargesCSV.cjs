@@ -141,14 +141,6 @@ const createClient = (a) => {
         `User ${a} received response: "${message.message}" (Response Time: ${responseTime}s)`
       );
 
-      logToCsv(
-        a,
-        dataToSend.message.text,
-        message.message,
-        responseTime,
-        totalResponseTime
-      );
-
       if (message.message === "Do you remember the date of transaction?") {
         let messageToSend =
           doYouRememberDateOfTransaction[
@@ -160,6 +152,13 @@ const createClient = (a) => {
           session_id: sessionId,
           metadata: dataToSend.metadata,
         });
+        logToCsv(
+          a,
+          messageToSend,
+          message.message,
+          responseTime,
+          totalResponseTime
+        );
       } else if (message.message === "Please enter the date of transaction") {
         let messageToSend =
           pleaseEnterTheDateOfTransaction[
@@ -173,6 +172,13 @@ const createClient = (a) => {
           session_id: sessionId,
           metadata: dataToSend.metadata,
         });
+        logToCsv(
+          a,
+          messageToSend,
+          message.message,
+          responseTime,
+          totalResponseTime
+        );
       } else if (message.message === "Please confirm your transactions") {
         let messageToSend =
           pleaseConfirmYourTransactions[
@@ -186,6 +192,13 @@ const createClient = (a) => {
           session_id: sessionId,
           metadata: dataToSend.metadata,
         });
+        logToCsv(
+          a,
+          messageToSend,
+          message.message,
+          responseTime,
+          totalResponseTime
+        );
       } else if (
         message.message === "Are you satisfied with the resolution provided?"
       ) {
@@ -203,6 +216,13 @@ const createClient = (a) => {
           session_id: sessionId,
           metadata: dataToSend.metadata,
         });
+        logToCsv(
+          a,
+          messageToSend,
+          message.message,
+          responseTime,
+          totalResponseTime
+        );
       } else if (
         message.message ===
         "Do you want to know about the other transactions too?"
@@ -214,7 +234,6 @@ const createClient = (a) => {
             )
           ];
         log(`User ${a}: ${messageToSend}`);
-        log(`User ${a}: ${messageToSend}`);
         socket.emit("request", {
           message: {
             text: messageToSend,
@@ -222,6 +241,13 @@ const createClient = (a) => {
           session_id: sessionId,
           metadata: dataToSend.metadata,
         });
+        logToCsv(
+          a,
+          messageToSend,
+          message.message,
+          responseTime,
+          totalResponseTime
+        );
       } else if (
         message.message === "Please select from the following transactions"
       ) {
@@ -239,6 +265,13 @@ const createClient = (a) => {
           session_id: sessionId,
           metadata: dataToSend.metadata,
         });
+        logToCsv(
+          a,
+          messageToSend,
+          message.message,
+          responseTime,
+          totalResponseTime
+        );
       } else if (
         message.message === "Please select Yes to end the conversation."
       ) {
@@ -256,6 +289,13 @@ const createClient = (a) => {
           session_id: sessionId,
           metadata: dataToSend.metadata,
         });
+        logToCsv(
+          a,
+          messageToSend,
+          message.message,
+          responseTime,
+          totalResponseTime
+        );
       } else if (
         message.message ===
         "Please enter the start date and end date for the transaction"
@@ -275,6 +315,13 @@ const createClient = (a) => {
           session_id: sessionId,
           metadata: dataToSend.metadata,
         });
+        logToCsv(
+          a,
+          messageToSend,
+          message.message,
+          responseTime,
+          totalResponseTime
+        );
       }
       if (message.message === "Thanks for your feedback. Happy to serve you.") {
         socket.disconnect();

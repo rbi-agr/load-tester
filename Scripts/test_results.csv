@@ -1,0 +1,9 @@
+S.No,Test Case,Message Sent,Response,Status,Time To Execute
+0,?500 was deducted from my account without any reason.,Do you remember the date of transaction?,0.615,0.615,
+0,?500 was deducted from my account without any reason.,Please enter the start date and end date for the transaction,0.739,1.354,
+0,?500 was deducted from my account without any reason.,Please confirm your transactions,1.548,2.902,
+0,?500 was deducted from my account without any reason.,Are you satisfied with the resolution provided?,1.65,6.197000000000001,
+0,?500 was deducted from my account without any reason.,A charge of ₹ 36 per month is deducted for non maintenance of minimum balance with a shortfall of 11% to 25% in average monthly balance in your Savings Account,1.645,4.547000000000001,
+0,?500 was deducted from my account without any reason.,Your issue has been registered in the CGRS system with this ticket ID: 10776100. You can track the status of your issue on this link: https://apps.indianbank.in/cgrc/frm_cust_comp.aspx,14.076,20.273000000000003,
+0,?500 was deducted from my account without any reason.,Please select Yes to end the conversation.,14.08,34.353,
+0,?500 was deducted from my account without any reason.,Thank You,14.169,48.522000000000006,
